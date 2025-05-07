@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Certificados Deportivos</title>
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- mis estilos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center mb-4">Generador de Certificados para Eventos Deportivos</h1>
+        
+        <!-- tarjeta del formulario -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h3>completa los datos del certificado</h3>
+            </div>
+            <div class="card-body">
+                <form id="formularioCertificado">
+                    <!-- fila 1 -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nombreEvento" class="form-label">nombre del evento deportivo</label>
+                            <input type="text" class="form-control" id="nombreEvento" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="fechaEvento" class="form-label">fecha del evento</label>
+                            <input type="date" class="form-control" id="fechaEvento" required>
+                        </div>
+                    </div>
+                    
+                    <!-- fila 2 -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="lugarEvento" class="form-label">lugar del evento</label>
+                            <input type="text" class="form-control" id="lugarEvento" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombreParticipante" class="form-label">nombre del participante</label>
+                            <input type="text" class="form-control" id="nombreParticipante" required>
+                        </div>
+                    </div>
+                    
+                    <!-- fila 3 -->
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="rolParticipante" class="form-label">rol del participante</label>
+                            <select class="form-select" id="rolParticipante" required>
+                                <option value="">selecciona un rol</option>
+                                <option value="Jugador">jugador</option>
+                                <option value="Arbitro">arbitro</option>
+                                <option value="Entrenador">entrenador</option>
+                                <option value="Organizador">organizador</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="duracionEvento" class="form-label">duracion del evento (horas)</label>
+                            <input type="number" class="form-control" id="duracionEvento" min="1" required>
+                        </div>
+                    </div>
+                    
+                    <!-- fila 4 -->
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="logoEscuela" class="form-label">logo de la escuela (opcional)</label>
+                            <input type="file" class="form-control" id="logoEscuela" accept="image/*">
+                        </div>
+                    </div>
+                    
+                    <!-- botones -->
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success" id="btnGenerar">generar certificado</button>
+                        <button type="button" class="btn btn-secondary" id="btnVerHistorial">ver certificados guardados</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- vista previa -->
+        <div class="card mb-4" id="vistaPreviaContainer" style="display: none;">
+            <div class="card-header bg-info text-white">
+                <h3>vista previa del certificado</h3>
+            </div>
+            <div class="card-body">
+                <div id="vistaPreviaContenido" class="p-3 border rounded"></div>
+                <div class="mt-3 d-flex justify-content-center">
+                    <button id="btnDescargarPDF" class="btn btn-primary me-2">descargar pdf</button>
+                    <button id="btnGuardar" class="btn btn-warning">guardar certificado</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- historial -->
+        <div class="card" id="historialContainer" style="display: none;">
+            <div class="card-header bg-dark text-white">
+                <h3>historial de certificados</h3>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="buscarCertificado" placeholder="buscar por nombre de participante...">
+                </div>
+                <div id="listaCertificados" class="list-group"></div>
+            </div>
+        </div>
+        
+        <!-- spinner para cargas -->
+        <div id="cargandoSpinner" class="text-center" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">cargando...</span>
+            </div>
+            <p>generando certificado, espera un momento...</p>
+        </div>
+    </div>
+
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

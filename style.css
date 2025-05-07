@@ -1,0 +1,89 @@
+/* mis estilos personalizados */
+
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #0d6efd;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn {
+    font-weight: bold;
+}
+
+#vistaPreviaContenido {
+    min-height: 300px;
+    background-color: #ffffff;
+    padding: 20px;
+    position: relative;
+}
+
+#listaCertificados .list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#listaCertificados .list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+.certificado-fondo {
+    border: 2px solid #0d6efd;
+    padding: 15px;
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.certificado-titulo {
+    text-align: center;
+    color: #0d6efd;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.certificado-contenido {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.certificado-firma {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.certificado-logo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 80px;
+    max-height: 80px;
+}
+
+.certificado-footer {
+    margin-top: 30px;
+    font-size: 12px;
+    text-align: center;
+    color: #6c757d;
+}
+
+/* para pantallas chicas */
+@media (max-width: 768px) {
+    .certificado-titulo {
+        font-size: 20px;
+    }
+    
+    .certificado-contenido {
+        font-size: 14px;
+    }
+}
